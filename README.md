@@ -1,4 +1,4 @@
-# Portfolio — Vivien AGBO
+# Portfolio - Vivien AGBO
 
 Portfolio personnel — Développeur full-stack et Data Scientist Junior.
 
