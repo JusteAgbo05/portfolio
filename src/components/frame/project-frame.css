@@ -1,0 +1,250 @@
+.pf-stage {
+  perspective: 1400px;
+}
+
+.pf-frame {
+  position: relative;
+  width: 100%;
+  max-width: 480px;
+  transform-style: preserve-3d;
+  transition: transform 0.15s ease-out;
+  will-change: transform;
+}
+
+.pf-corner {
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  z-index: 3;
+  pointer-events: none;
+}
+.pf-corner--tl {
+  top: -9px;
+  left: -9px;
+  border-top: 2px solid var(--amber);
+  border-left: 2px solid var(--amber);
+}
+.pf-corner--tr {
+  top: -9px;
+  right: -9px;
+  border-top: 2px solid var(--amber);
+  border-right: 2px solid var(--amber);
+}
+.pf-corner--bl {
+  bottom: -9px;
+  left: -9px;
+  border-bottom: 2px solid var(--amber);
+  border-left: 2px solid var(--amber);
+}
+.pf-corner--br {
+  bottom: -9px;
+  right: -9px;
+  border-bottom: 2px solid var(--amber);
+  border-right: 2px solid var(--amber);
+}
+
+.pf-meta {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 6px 10px;
+  margin-bottom: 12px;
+  font-family: var(--font-display);
+  font-size: 12px;
+  letter-spacing: 0.05em;
+}
+
+.pf-status {
+  color: var(--amber);
+  white-space: nowrap;
+}
+.pf-tag {
+  color: var(--cyan);
+  white-space: nowrap;
+}
+
+.pf-browser {
+  background: var(--surface);
+  border: 0.5px solid var(--line);
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 30px 60px -20px rgba(0, 0, 0, 0.6);
+  transform: translateZ(0);
+  transform-style: flat; /* isole du preserve-3d du parent, évite le ghosting */
+}
+
+.pf-chrome {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 12px;
+  border-bottom: 0.5px solid var(--line);
+}
+.pf-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #2a3038;
+}
+.pf-urlbar {
+  flex: 1;
+  margin-left: 8px;
+  background: #0f1216;
+  border: 0.5px solid var(--line);
+  border-radius: 5px;
+  padding: 4px 10px;
+  font-family: var(--font-display);
+  font-size: 9px;
+  color: var(--text-secondary);
+}
+
+.pf-viewport {
+  height: 320px;
+  overflow: hidden;
+  position: relative;
+}
+
+.pf-screenshot {
+  width: 100%;
+  display: block;
+}
+
+.pf-scroll-content {
+  animation: pf-autoscroll 9s ease-in-out infinite;
+}
+
+@keyframes pf-autoscroll {
+  0% {
+    transform: translateY(0);
+  }
+  15% {
+    transform: translateY(0);
+  }
+  45% {
+    transform: translateY(-260px);
+  }
+  60% {
+    transform: translateY(-260px);
+  }
+  90% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.pf-name {
+  margin: 18px 0 8px;
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 19px;
+  color: var(--text);
+}
+
+.pf-pitch {
+  font-size: 14.5px;
+  line-height: 1.65;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+/* --- placeholder UI, en attendant les vraies captures --- */
+.pf-ph-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 16px;
+  border-bottom: 0.5px solid var(--line);
+}
+.pf-ph-logo {
+  width: 70px;
+  height: 10px;
+  background: var(--cyan);
+  opacity: 0.5;
+  border-radius: 2px;
+}
+.pf-ph-pill {
+  width: 52px;
+  height: 18px;
+  background: var(--amber);
+  opacity: 0.85;
+  border-radius: 4px;
+}
+.pf-ph-block {
+  margin: 16px;
+}
+.pf-ph-title {
+  width: 60%;
+  height: 12px;
+  background: #2a3038;
+  border-radius: 3px;
+  margin-bottom: 8px;
+}
+.pf-ph-sub {
+  width: 85%;
+  height: 8px;
+  background: var(--line-soft);
+  border-radius: 3px;
+  margin-bottom: 20px;
+}
+.pf-ph-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin: 0 16px 16px;
+}
+.pf-ph-card {
+  background: var(--surface-raised);
+  border: 0.5px solid var(--line);
+  border-radius: 8px;
+  height: 70px;
+  padding: 10px;
+}
+.pf-ph-l1 {
+  width: 60%;
+  height: 8px;
+  background: #2a3038;
+  border-radius: 2px;
+  margin-bottom: 6px;
+}
+.pf-ph-l2 {
+  width: 40%;
+  height: 8px;
+  background: var(--cyan-dim);
+  border-radius: 2px;
+}
+.pf-ph-table {
+  margin: 0 16px;
+}
+.pf-ph-row {
+  display: flex;
+  gap: 8px;
+  padding: 8px 0;
+  border-bottom: 0.5px solid var(--line);
+}
+.pf-ph-c {
+  height: 8px;
+  background: #232830;
+  border-radius: 2px;
+}
+.pf-ph-c1 {
+  width: 20%;
+}
+.pf-ph-c2 {
+  width: 35%;
+}
+.pf-ph-c3 {
+  width: 15%;
+  background: var(--amber-dim);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pf-frame {
+    transition: none;
+  }
+  .pf-scroll-content {
+    animation: none;
+  }
+}

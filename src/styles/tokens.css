@@ -1,0 +1,59 @@
+/*
+  Design tokens — portfolio AG
+  Direction validée : graphite quasi-noir + ambre/cyan,
+  signature "bounding box" (clin d'oeil au projet computer vision)
+*/
+
+:root {
+  /* surfaces */
+  --bg: #0b0e12;
+  --surface: #12161c;
+  --surface-raised: #171b21;
+  --line: #23282f;
+  --line-soft: #1b2027;
+
+  /* texte */
+  --text: #e8eaed;
+  --text-secondary: #8b93a1;
+  --text-muted: #5b6270;
+
+  /* accents porteurs de sens */
+  --amber: #ffb020;
+  --amber-dim: rgba(255, 176, 32, 0.5);
+  --cyan: #4cc9f0;
+  --cyan-dim: rgba(76, 201, 240, 0.4);
+
+  /* typo */
+  --font-display: 'IBM Plex Mono', 'SF Mono', monospace;
+  --font-body: 'Inter', system-ui, sans-serif;
+
+  /* rayons / espacements de base */
+  --radius-card: 12px;
+  --radius-sm: 6px;
+
+    /* ... tes tokens existants ... */
+  --header-bg: rgba(11, 14, 18, 0.85);
+}
+
+/*
+  Thème clair — mêmes accents porteurs de sens (ambre/cyan), surfaces
+  et textes inversés. Le cyan est légèrement assombri pour rester
+  lisible sur fond blanc.
+*/
+[data-theme='light'] {
+  --bg: #f6f7f9;
+  --surface: #ffffff;
+  --surface-raised: #f1f3f6;
+  --line: #e3e6ea;
+  --line-soft: #edeff2;
+
+  --text: #12161c;
+  --text-secondary: #4b5563;
+  --text-muted: #8a93a1;
+
+  --cyan: #0f95b0;
+  --cyan-dim: rgba(15, 149, 176, 0.35);
+
+  --header-bg: rgba(246, 247, 249, 0.85);
+
+}
