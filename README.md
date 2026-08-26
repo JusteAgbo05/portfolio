@@ -1,31 +1,60 @@
-# Portfolio AG — refonte haut de gamme
+# Portfolio — Vivien AGBO
 
-## Stack
-- React + TypeScript + Vite
-- Tailwind CSS v4
-- Three.js / React Three Fiber + Drei (réservés à la scène 3D du hero, à venir)
-- GSAP (animations de scroll, à venir)
-- React Router DOM (pages projets individuelles, à venir)
+Portfolio personnel — Développeur full-stack et Data Scientist Junior.
 
-## Où on en est
-- Design system posé dans `src/styles/tokens.css` (couleurs, typo)
-- Cadre projet 3D interactif : `src/components/frame/ProjectFrame3D.tsx`
-  (tilt CSS 3D à la souris + défilement en boucle de l'aperçu d'interface)
-- Données des projets centralisées dans `src/data/projects.ts`
-  → pour ajouter un futur projet du parcours ML Engineer, ajouter une
-    entrée avec `status: 'upcoming'`, rien d'autre à modifier
-- Section Projets assemblée : `src/sections/ProjectsSection.tsx`
+## Stack technique
 
-## Prochaines étapes
-1. Hero avec scène 3D (React Three Fiber)
-2. Sections À propos, Compétences, Contact
-3. Pages détail par projet (React Router)
-4. Remplacer les placeholders par les vraies captures d'écran
-   (déposer les images dans `src/assets/` et renseigner le champ
-   `screenshot` dans `src/data/projects.ts`)
+- **React + TypeScript + Vite**
+- **Tailwind CSS v4**
+- **Three.js / React Three Fiber + Drei** 
+- **GSAP (ScrollTrigger)** 
+- **React Router DOM** - page d'accueil + pages détail par projet
+- **react-icons** (logos techno/marques) + **lucide-react** (icônes UI)
+
+## Fonctionnalités
+
+- **Hero 3D** interactif (Three.js)
+- **À propos** 
+- **Formation** - frise chronologique (cartes, statut "en cours"/"terminé")
+- **Projets** - grille de cartes avec aperçu au survol, fenêtre modale
+  au clic (description complète, stack, liens code/démo/présentation),
+  section "à venir" pilotée par les données
+- **Compétences** - cartes par catégorie
+- **Distinctions & Récompenses** - carrousel de certificats en
+  défilement automatique.
+- **Notes** - aperçus de liens (posts LinkedIn, articles)
+- **Contact** - coordonnées + formulaire (EmailJS)
+- **Thème clair/sombre** et **langue FR/EN**, tous deux persistés
+
+## Personnaliser le contenu
+
+Le site est piloté par des fichiers de données dans `src/data/` :
+
+| Fichier | Contenu |
+|---|---|
+| `src/data/projects.ts` | Projets (pitch FR/EN, stack, liens, captures) |
+| `src/data/education.ts` | Parcours de formation |
+| `src/data/awards.ts` | Distinctions et certificats |
+| `src/data/notes.ts` | Liens vers posts/articles |
+| `src/data/socialLinks.ts` | Email, téléphone, GitHub, LinkedIn |
+| `src/i18n/translations.ts` | Tous les textes traduits FR/EN |
+
+Assets à déposer dans `public/` :
+- `public/photos/` - photos pour le carrousel "À propos"
+- `public/cv/` - CV au format PDF
+- `public/certificates/` 
+- `public/screenshots/` 
 
 ## Lancer le projet
-```
+
+```bash
 npm install
 npm run dev
+```
+
+## Build de production
+
+```bash
+npm run build
+npm run preview   # pour tester le build localement
 ```
