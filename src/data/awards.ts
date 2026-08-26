@@ -66,8 +66,8 @@ export const awards: Award[] = [
     titleEn: 'AI Workshop: From Linear Algebra to AI',
     description: "Certificat de participation et de réussite (Score Or : 95/100) délivré par l'Académie des Mathématiques Appliquées (AMA) pour le workshop de 4h axé sur les bases mathématiques appliquées à l'intelligence artificielle.",
     descriptionEn: 'Certificate of completion and achievement (Gold Score: 95/100) issued by the Académie des Mathématiques Appliquées (AMA) for a 4-hour workshop on mathematical foundations for AI.',
-    date: '29 avril 2026',
-    dateEn: 'April 29, 2026',
+    date: 'Avril 2026',
+    dateEn: 'April 2026',
     image: '/certificates/certificat_6.png',
   },
   {
