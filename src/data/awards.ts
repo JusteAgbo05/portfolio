@@ -83,8 +83,8 @@ export const awards: Award[] = [
   },
 
   {
-    id: '5',
-    rank: '#5',
+    id: '7',
+    rank: '#7',
     title: 'IndabaX Benin 2026',
     titleEn: 'IndabaX Benin 2026',
     description: 'Certificat de participation attestant de la présence et de l’engagement aux conférences, ateliers pratiques et sessions d’apprentissage en intelligence artificielle et deep learning lors de l’IndabaX Bénin.',
@@ -94,8 +94,8 @@ export const awards: Award[] = [
     image: '/certificates/certificat_indabax_2026.png',
   },
   {
-    id: '6',
-    rank: '#6',
+    id: '8',
+    rank: '#8',
     title: 'Gérez du code avec Git et GitHub',
     titleEn: 'Manage Code with Git and GitHub',
     description: 'Certificat de réussite OpenClassrooms validant la maîtrise du contrôle de version avec Git, la collaboration via GitHub, la gestion des branches et la résolution des conflits de fusion.',
@@ -105,8 +105,8 @@ export const awards: Award[] = [
     image: '/certificates/certificat_git_github.png',
   },
   {
-    id: '7',
-    rank: '#7',
+    id: '9',
+    rank: '#9',
     title: 'Découvrez la programmation orientée objet avec Python',
     titleEn: 'Discover Object-Oriented Programming with Python',
     description: 'Certificat de réussite OpenClassrooms validant les principes fondamentaux de la programmation orientée objet en Python : conception de classes, encapsulation, héritage et modélisation logicielle propre.',
