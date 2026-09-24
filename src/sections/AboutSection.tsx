@@ -99,6 +99,7 @@ const HIGHLIGHT_TERMS = [
   'Intelligence Artificielle',
   'Artificial Intelligence',
   'Machine Learning',
+  'Machine Learning Engineer',
 ];
 
 function highlightAboutText(text: string): ReactNode[] {

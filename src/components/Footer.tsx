@@ -16,13 +16,13 @@ export function Footer() {
         </p>
 
         <div className="flex items-center gap-3">
-          <a href={socialLinks.github} target="_blank" rel="noreferrer" style={{ color: 'var(--text-secondary)' }}>
+          <a aria-label="GitHub" href={socialLinks.github} target="_blank" rel="noreferrer" style={{ color: 'var(--text-secondary)' }}>
             <FaGithub size={18} />
           </a>
-          <a href={socialLinks.linkedin} target="_blank" rel="noreferrer" style={{ color: 'var(--text-secondary)' }}>
+          <a aria-label="LinkedIn" href={socialLinks.linkedin} target="_blank" rel="noreferrer" style={{ color: 'var(--text-secondary)' }}>
             <FaLinkedin size={18} />
           </a>
-          <a href={socialLinks.email} target="_blank" rel="noreferrer" style={{ color: 'var(--text-secondary)' }}>
+          <a aria-label="Envoyer un email" href={`mailto:${socialLinks.email}`} style={{ color: 'var(--text-secondary)' }}>
             <FaEnvelope size={18} />
           </a>
         </div>

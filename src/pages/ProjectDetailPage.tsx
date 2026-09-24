@@ -1,5 +1,5 @@
 import { Link, useParams } from 'react-router-dom';
-import { ArrowLeft, Code2, ExternalLink } from 'lucide-react';
+import { ArrowLeft, Code2, ExternalLink, PlayCircle } from 'lucide-react';
 import { projects } from '../data/projects';
 import { ProjectFrame3D } from '../components/frame/ProjectFrame3D';
 import { useLanguage } from '../i18n/LanguageContext';
@@ -11,7 +11,7 @@ export function ProjectDetailPage() {
 
   if (!project) {
     return (
-      <main className="min-h-screen flex flex-col items-center justify-center px-6 text-center">
+      <div className="min-h-screen flex flex-col items-center justify-center px-6 text-center">
         <p style={{ color: 'var(--text-secondary)' }}>{t.projectDetail.notFound}</p>
         <Link
           to="/"
@@ -20,7 +20,7 @@ export function ProjectDetailPage() {
         >
           {t.projectDetail.backHome}
         </Link>
-      </main>
+      </div>
     );
   }
 
@@ -29,9 +29,11 @@ export function ProjectDetailPage() {
     lang === 'en' && project.highlightsEn && project.highlightsEn.length > 0
       ? project.highlightsEn
       : project.highlights;
+  const role = lang === 'en' && project.roleEn ? project.roleEn : project.role;
+  const status = project.status === 'deployed' ? t.projects.deployed : t.projects.inProgress;
 
   return (
-    <main className="min-h-screen px-6 py-16 max-w-5xl mx-auto">
+    <div className="min-h-screen px-6 py-16 max-w-5xl mx-auto">
       <Link
         to="/#projets"
         className="inline-flex items-center gap-2 mb-12 text-xs"
@@ -48,11 +50,16 @@ export function ProjectDetailPage() {
             className="text-xs tracking-widest mb-3"
             style={{ fontFamily: 'var(--font-display)', color: 'var(--amber)' }}
           >
-            {project.version} · {project.status}
+            {project.version} · {status}
           </p>
           <h1 className="text-3xl font-medium mb-6" style={{ color: 'var(--text)' }}>
             {project.name}
           </h1>
+          {role && (
+            <p className="text-sm mb-4" style={{ fontFamily: 'var(--font-display)', color: 'var(--cyan)' }}>
+              {role}
+            </p>
+          )}
           <p className="text-base leading-relaxed mb-8" style={{ color: 'var(--text-secondary)' }}>
             {pitch}
           </p>
@@ -122,9 +129,20 @@ export function ProjectDetailPage() {
                 <ExternalLink size={16} /> {t.projectDetail.demo}
               </a>
             )}
+            {project.presentationUrl && (
+              <a
+                href={project.presentationUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-2 text-sm"
+                style={{ color: 'var(--cyan)' }}
+              >
+                <PlayCircle size={16} /> {t.projects.presentation}
+              </a>
+            )}
           </div>
         </div>
       </div>
-    </main>
+    </div>
   );
 }

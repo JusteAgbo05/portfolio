@@ -1,6 +1,7 @@
 import { HeroSection } from '../sections/HeroSection';
 import { AboutSection } from '../sections/AboutSection';
 import { FormationSection } from '../sections/FormationSection';
+import { ExperienceSection } from '../sections/ExperienceSection';
 import { ProjectsSection } from '../sections/ProjectsSection';
 import { SkillsSection } from '../sections/SkillsSection';
 import { AwardsSection } from '../sections/AwardsSection';
@@ -16,15 +17,16 @@ export function HomePage() {
   useHashScroll();
 
   return (
-    <main>
+    <>
       <HeroSection />
       <AboutSection />
       <FormationSection />
+      <ExperienceSection />
       <ProjectsSection />
       <SkillsSection />
       <AwardsSection />
       <NotesSection />
       <ContactSection />
-    </main>
+    </>
   );
 }

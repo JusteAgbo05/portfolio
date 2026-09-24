@@ -1,20 +1,25 @@
+import { Link } from 'react-router-dom';
 import type { Project } from '../../data/projects';
+import { useLanguage } from '../../i18n/LanguageContext';
 
 interface ProjectCardProps {
   project: Project;
-  onOpen: () => void;
   visibleTagCount?: number;
 }
 
-export function ProjectCard({ project, onOpen, visibleTagCount = 4 }: ProjectCardProps) {
+export function ProjectCard({ project, visibleTagCount = 4 }: ProjectCardProps) {
+  const { lang, t } = useLanguage();
   const cover = project.screenshots?.[0] ?? project.screenshot;
   const visibleTags = project.stack.slice(0, visibleTagCount);
   const hiddenCount = project.stack.length - visibleTags.length;
+  const role = lang === 'en' && project.roleEn ? project.roleEn : project.role;
+  const pitch = lang === 'en' && project.pitchEn ? project.pitchEn : project.pitch;
+  const status = project.status === 'deployed' ? t.projects.deployed : t.projects.inProgress;
 
   return (
-    <button
-      onClick={onOpen}
-      className="text-left w-full rounded-xl overflow-hidden group"
+    <Link
+      to={`/projets/${project.id}`}
+      className="block text-left w-full rounded-xl overflow-hidden group transition-transform duration-300 hover:-translate-y-1 focus-visible:-translate-y-1"
       style={{ background: 'var(--surface)', border: '0.5px solid var(--line)' }}
     >
       <div className="relative aspect-video overflow-hidden" style={{ background: 'var(--bg)' }}>
@@ -33,26 +38,32 @@ export function ProjectCard({ project, onOpen, visibleTagCount = 4 }: ProjectCar
           </div>
         )}
 
-        {/* overlay dégradé + titre au survol */}
         <div
-          className="absolute inset-0 flex flex-col justify-end p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+          className="absolute inset-x-0 bottom-0 h-1/2 pointer-events-none"
           style={{
-            background: 'linear-gradient(to top, rgba(11,14,18,0.95) 0%, rgba(11,14,18,0.4) 55%, transparent 100%)',
+            background: 'linear-gradient(to top, rgba(11,14,18,0.55), transparent)',
           }}
-        >
-          <h3 className="text-base font-medium" style={{ color: 'var(--text)' }}>
-            {project.name}
-          </h3>
-          {project.role && (
-            <p className="text-xs" style={{ fontFamily: 'var(--font-display)', color: 'var(--cyan)' }}>
-              {project.role}
-            </p>
-          )}
-        </div>
+        />
       </div>
 
-      <div className="p-4 flex flex-wrap gap-1.5">
-        {visibleTags.map((tech) => (
+      <div className="p-5">
+        <div className="flex items-center justify-between gap-3 mb-3 text-xs" style={{ fontFamily: 'var(--font-display)' }}>
+          <span style={{ color: 'var(--amber)' }}>{project.version}</span>
+          <span style={{ color: 'var(--text-muted)' }}>{status}</span>
+        </div>
+        <h3 className="text-lg font-medium mb-1" style={{ color: 'var(--text)' }}>
+          {project.name}
+        </h3>
+        {role && (
+          <p className="text-xs mb-3" style={{ fontFamily: 'var(--font-display)', color: 'var(--cyan)' }}>
+            {role}
+          </p>
+        )}
+        <p className="text-sm leading-relaxed line-clamp-3 mb-4" style={{ color: 'var(--text-secondary)' }}>
+          {pitch}
+        </p>
+        <div className="flex flex-wrap gap-1.5 mb-4">
+          {visibleTags.map((tech) => (
           <span
             key={tech}
             className="text-xs px-2 py-1 rounded-md"
@@ -65,8 +76,8 @@ export function ProjectCard({ project, onOpen, visibleTagCount = 4 }: ProjectCar
           >
             {tech}
           </span>
-        ))}
-        {hiddenCount > 0 && (
+          ))}
+          {hiddenCount > 0 && (
           <span
             className="text-xs px-2 py-1 rounded-md"
             style={{
@@ -77,8 +88,12 @@ export function ProjectCard({ project, onOpen, visibleTagCount = 4 }: ProjectCar
           >
             +{hiddenCount}
           </span>
-        )}
+          )}
+        </div>
+        <span className="text-xs" style={{ fontFamily: 'var(--font-display)', color: 'var(--cyan)' }}>
+          {t.projectDetail.explore} →
+        </span>
       </div>
-    </button>
+    </Link>
   );
 }

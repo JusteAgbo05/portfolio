@@ -4,7 +4,7 @@ import { SkillBar } from './SkillBar';
 
 interface Skill {
   name: string;
-  level: number;
+  experience: 'project' | 'learning' | 'foundation';
   icon?: IconType;
 }
 
@@ -49,7 +49,7 @@ export function SkillCard({ label, icon: Icon, accent, skills, delayMs = 0 }: Sk
         <SkillBar
           key={skill.name}
           name={skill.name}
-          level={skill.level}
+          experience={skill.experience}
           accent={accent}
           icon={skill.icon}
           animate={inView}

@@ -27,7 +27,7 @@ export const education: EducationItem[] = [
     status: 'completed',
     degree: 'Licence en Sciences et Technologies (Hydrologie Quantitative et Gestion Intégrée des Ressources en Eau)',
     degreeEn: 'Bachelor of Sciences and Technology (Quantitative Hydrology and Integrated Water Resources Management)',
-    institution: "Institut National de l'Eau (INE), UAC",
+    institution: "Institut National de l'Eau (INE), boursier, UAC",
     location: 'Abomey-Calavi, Bénin',
     period: '2022 - 2026',
   },

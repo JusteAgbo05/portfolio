@@ -17,7 +17,7 @@ import { useLanguage } from '../i18n/LanguageContext';
 
 interface Skill {
   name: string;
-  level: number; // 0–100 — à ajuster
+  experience: 'project' | 'learning' | 'foundation';
   icon?: IconType;
 }
 
@@ -29,10 +29,6 @@ interface SkillCategory {
   skills: Skill[];
 }
 
-/*
-  Pourcentages repris de l'ancien portfolio pour Front-end/Back-end/Outils
-  (à ajuster toi-même), placeholders pour Data & Machine Learning.
-*/
 const categories: SkillCategory[] = [
   {
     label: 'Front-end',
@@ -40,10 +36,10 @@ const categories: SkillCategory[] = [
     icon: Monitor,
     accent: 'cyan',
     skills: [
-      { name: 'HTML5', level: 75, icon: SiHtml5 },
-      { name: 'CSS3', level: 70, icon: SiCss },
-      { name: 'JavaScript (DOM & API)', level: 60, icon: SiJavascript },
-      { name: 'React', level: 55, icon: SiReact },
+      { name: 'HTML5', experience: 'project', icon: SiHtml5 },
+      { name: 'CSS3', experience: 'project', icon: SiCss },
+      { name: 'JavaScript (DOM & API)', experience: 'project', icon: SiJavascript },
+      { name: 'React', experience: 'project', icon: SiReact },
     ],
   },
   {
@@ -52,10 +48,10 @@ const categories: SkillCategory[] = [
     icon: Server,
     accent: 'cyan',
     skills: [
-      { name: 'PHP / Laravel', level: 60, icon: SiPhp },
-      { name: 'MySQL', level: 60, icon: SiMysql },
-      { name: 'Node.js', level: 50, icon: SiNodedotjs },
-      { name: 'API REST', level: 50 },
+      { name: 'PHP / Laravel', experience: 'project', icon: SiPhp },
+      { name: 'MySQL', experience: 'project', icon: SiMysql },
+      { name: 'Node.js', experience: 'foundation', icon: SiNodedotjs },
+      { name: 'API REST', experience: 'project' },
     ],
   },
   {
@@ -64,9 +60,9 @@ const categories: SkillCategory[] = [
     icon: Cpu,
     accent: 'amber',
     skills: [
-      { name: 'Python', level: 60, icon: SiPython },
-      { name: 'Machine Learning', level: 50 },
-      { name: 'Computer Vision', level: 45, icon: SiOpencv },
+      { name: 'Python', experience: 'project', icon: SiPython },
+      { name: 'Machine Learning', experience: 'learning' },
+      { name: 'Computer Vision', experience: 'project', icon: SiOpencv },
     ],
   },
   {
@@ -75,9 +71,9 @@ const categories: SkillCategory[] = [
     icon: Wrench,
     accent: 'cyan',
     skills: [
-      { name: 'Git / GitHub', level: 60, icon: SiGit },
-      { name: 'VS Code', level: 75 },
-      { name: 'Linux', level: 65 },
+      { name: 'Git / GitHub', experience: 'project', icon: SiGit },
+      { name: 'VS Code', experience: 'project' },
+      { name: 'Linux', experience: 'foundation' },
     ],
   },
 
@@ -87,9 +83,9 @@ const categories: SkillCategory[] = [
     icon: Users,
     accent: 'cyan',
     skills: [
-      { name: 'Gestion de projet', level: 80},
-      { name: 'Résolution de problèmes', level: 85 },
-      { name: 'Travail en équipe', level: 85 },
+      { name: 'Gestion de projet', experience: 'project'},
+      { name: 'Résolution de problèmes', experience: 'project' },
+      { name: 'Travail en équipe', experience: 'project' },
     ],
   },
 ];
@@ -108,6 +104,9 @@ export function SkillsSection() {
       <h2 className="text-2xl font-medium mb-12" style={{ color: 'var(--text)' }}>
         {t.skills.title}
       </h2>
+      <p className="text-sm leading-relaxed max-w-2xl -mt-7 mb-10" style={{ color: 'var(--text-secondary)' }}>
+        {t.skills.intro}
+      </p>
 
       <div className="grid gap-6 sm:grid-cols-2">
         {categories.map((category, i) => (

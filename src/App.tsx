@@ -7,11 +7,16 @@ import { ProjectDetailPage } from './pages/ProjectDetailPage';
 function App() {
   return (
     <>
+      <a className="skip-link" href="#main-content">
+        Aller au contenu principal
+      </a>
       <Header />
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/projets/:id" element={<ProjectDetailPage />} />
-      </Routes>
+      <main id="main-content" tabIndex={-1}>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/projets/:id" element={<ProjectDetailPage />} />
+        </Routes>
+      </main>
       <Footer />
     </>
   );

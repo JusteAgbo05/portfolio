@@ -12,6 +12,8 @@ export interface Translations {
     about: string;
     projects: string;
     skills: string;
+    formation: string;
+    experience: string;
     awards: string;
     contact: string;
     notes: string;
@@ -21,6 +23,8 @@ export interface Translations {
     title: string;
     subtitle: string;
     scroll: string;
+    primaryCta: string;
+    secondaryCta: string;
   };
   about: {
     eyebrow: string;
@@ -51,12 +55,17 @@ export interface Translations {
     keyFeatures: string;
     code: string;
     demo: string;
+    explore: string;
     notFound: string;
     backHome: string;
   };
   skills: {
     eyebrow: string;
     title: string;
+    intro: string;
+    project: string;
+    learning: string;
+    foundation: string;
   };
   awards: {
     eyebrow: string;
@@ -110,6 +119,11 @@ export interface Translations {
     ongoing: string;
     completed: string;
   };
+  experience: {
+    eyebrow: string;
+    title: string;
+    intro: string;
+  };
 }
 
 export const translations: Record<Lang, Translations> = {
@@ -119,27 +133,31 @@ export const translations: Record<Lang, Translations> = {
       about: 'À propos',
       projects: 'Projets',
       skills: 'Compétences',
+      formation: 'Formation',
+      experience: 'Expérience',
       awards: 'Distinctions',
       contact: 'Contact',
       notes: 'Notes',
     },
     hero: {
-      eyebrow: 'class: full-stack-developer · confidence: 0.97',
-      title: 'Building intelligent web applications',
+      eyebrow: 'profil: développeur full-stack · parcours ML engineer',
+      title: 'Concevoir des applications web intelligentes.',
       subtitle:
-        "Je conçois des applications web complètes, du schéma de base de données à l'interface et j'intègre aujourd'hui le Machine Learning à mes projets pour aller au-delà du CRUD classique.",
+        "Je conçois des applications web complètes, du modèle de données à l'interface utilisateur, en y intégrant le Machine Learning pour dépasser les simples fonctionnalités CRUD et apporter une réelle valeur métier.",
       scroll: 'scroller pour me découvrir',
+      primaryCta: 'Voir mes projets',
+      secondaryCta: 'Me contacter',
     },
-    about: {
-      eyebrow: 'qui suis-je ?',
-      title: 'À propos de moi',
-      p1: "Moi, c'est Vivien AGBO. Je suis étudiant en sciences et technologies, mais aussi développeur web et passionné d'intelligence artificielle. J'aime faire le pont entre la rigueur scientifique et la création de solutions numériques.",
-      p2: "Côté web, j'ai bien évolué : en plus des bases, je développe aujourd'hui des applications dynamiques et robustes grâce à des technologies comme React pour le front-end, Laravel et PHP/MySQL pour le back-end, ainsi que des API REST et WordPress.",
-      p3: "En parallèle, je renforce mes compétences en Intelligence Artificielle, Machine Learning au sein du Programme d'Introduction en Intelligence Artificielle de l'Académie des Mathématiques Appliquées (AMA).",
-      p4: "Pour moi, chaque projet est une opportunité de transformer des idées ou des calculs complexes en outils simples, utiles et efficaces au quotidien.",
-      cvView: 'voir mon CV',
-      cvDownload: 'Télécharger mon CV',
-    },
+   about: {
+  eyebrow: "qui suis-je ?",
+  title: "À propos de moi",
+  p1: "Je m'appelle Vivien AGBO. Passionné par les sciences, les technologies et l'intelligence artificielle, je conçois des solutions numériques en alliant rigueur méthodologique et créativité.",
+  p2: "Sur le plan du développement web, je crée des applications complètes, dynamiques et performantes. Je m'appuie principalement sur React pour concevoir des interfaces modernes, ainsi que sur Laravel et PHP/MySQL pour bâtir des architectures dorsales fiables et des API REST.",
+  p3: "En parallèle, je me forme activement en Machine Learning au sein de l'Académie des Mathématiques Appliquées, afin d'apprendre à concevoir et intégrer des modèles prédictifs dans des applications concrètes.",
+  p4: "Ma démarche repose sur une conviction : transformer des problématiques ou des données complexes en outils numériques simples, intuitifs et à fort impact au quotidien.",
+  cvView: "Voir mon CV",
+  cvDownload: "Télécharger mon CV",
+},
     timeline: {
       label: 'parcours',
       steps: [
@@ -184,12 +202,17 @@ export const translations: Record<Lang, Translations> = {
       keyFeatures: 'fonctionnalités clés',
       code: 'Code source',
       demo: 'Voir la démo',
+      explore: 'Découvrir le projet',
       notFound: 'Projet introuvable.',
       backHome: "← retour à l'accueil",
     },
     skills: {
       eyebrow: 'section: compétences',
       title: 'Technologies et outils que j\'utilise',
+      intro: 'Une lecture transparente de mes compétences : ce que j’ai déjà mis en œuvre, ce que j’approfondis dans mon parcours ML Engineer et les bases sur lesquelles je m’appuie.',
+      project: 'appliqué en projet',
+      learning: 'en apprentissage',
+      foundation: 'fondamentaux',
     },
     awards: {
       eyebrow: 'section: distinctions',
@@ -244,6 +267,11 @@ export const translations: Record<Lang, Translations> = {
       ongoing: 'En cours',
       completed: 'Terminé',
     },
+    experience: {
+      eyebrow: 'section: expérience',
+      title: 'Expériences professionnelles',
+      intro: 'Des expériences de terrain qui nourrissent mon approche de la donnée, des systèmes et de la résolution de problèmes concrets.',
+    },
   },
   en: {
     nav: {
@@ -251,27 +279,31 @@ export const translations: Record<Lang, Translations> = {
       about: 'About',
       projects: 'Projects',
       skills: 'Skills',
+      formation: 'Education',
+      experience: 'Experience',
       awards: 'Awards',
       contact: 'Contact',
       notes: 'Notes',
     },
     hero: {
-      eyebrow: 'class: full-stack-developer · confidence: 0.97',
+      eyebrow: 'profile: full-stack developer · ML engineer track',
       title: 'Building intelligent web applications',
       subtitle:
-        "I build complete web applications, from database schema to interface and I'm now bringing Machine Learning into my projects to go beyond classic CRUD apps.",
+        "I build end-to-end web applications, from database architecture to intuitive user interfaces, integrating Machine Learning to go beyond standard CRUD and deliver real-world business value.",
       scroll: 'scroll to discover me',
+      primaryCta: 'View my projects',
+      secondaryCta: 'Get in touch',
     },
-    about: {
-      eyebrow: 'who am i?',
-      title: 'About me',
-      p1: "I'm Vivien AGBO. I'm a sciences and technology student, and also a web developer passionate about artificial intelligence. I like bridging scientific rigor with building digital solutions.",
-      p2: "On the web side, I've grown a lot: beyond the basics, I now build dynamic, robust applications with technologies like React for the front-end, Laravel and PHP/MySQL for the back-end, plus REST APIs and WordPress.",
-      p3: "In parallel, I'm strengthening my skills in Artificial Intelligence and Machine Learning through the Introduction to AI Program at the Académie des Mathématiques Appliquées (AMA).",
-      p4: 'For me, every project is a chance to turn ideas or complex calculations into simple, useful, everyday tools.',
-      cvView: 'view my CV',
-      cvDownload: 'Download my CV',
-    },
+   about: {
+  eyebrow: "who am I?",
+  title: "About Me",
+  p1: "My name is Vivien AGBO. Driven by science, technology, and artificial intelligence, I craft digital solutions that bridge rigorous analysis with creative software engineering.",
+  p2: "As a full-stack web developer, I build dynamic, scalable, and responsive applications. My core stack includes React for modern interfaces, alongside Laravel and PHP/MySQL for solid back-ends and robust REST APIs.",
+  p3: "In parallel, I am actively training in Machine Learning at the Académie des Mathématiques Appliquées, learning to build and integrate predictive models into real-world applications.",
+  p4: "My core goal is straightforward: turning complex data and challenging problems into clean, accessible, and high-impact digital tools.",
+  cvView: "View Resume",
+  cvDownload: "Download Resume",
+},
     timeline: {
       label: 'journey',
       steps: [
@@ -316,12 +348,17 @@ export const translations: Record<Lang, Translations> = {
       keyFeatures: 'key features',
       code: 'Source code',
       demo: 'View demo',
+      explore: 'Explore project',
       notFound: 'Project not found.',
       backHome: '← back home',
     },
     skills: {
       eyebrow: 'section: skills',
       title: 'Technologies and tools I use',
+      intro: 'A transparent view of my skills: what I have already applied in projects, what I am deepening in my ML Engineer track, and the foundations I rely on.',
+      project: 'applied in projects',
+      learning: 'currently learning',
+      foundation: 'foundations',
     },
     awards: {
       eyebrow: 'section: awards',
@@ -375,6 +412,11 @@ export const translations: Record<Lang, Translations> = {
       title: 'Education',
       ongoing: 'Ongoing',
       completed: 'Completed',
+    },
+    experience: {
+      eyebrow: 'section: experience',
+      title: 'Professional experience',
+      intro: 'Hands-on experience that shapes my approach to data, systems, and solving real-world problems.',
     },
   },
 };

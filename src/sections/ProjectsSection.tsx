@@ -1,7 +1,5 @@
-import { useState } from 'react';
-import { projects, type Project } from '../data/projects';
+import { projects } from '../data/projects';
 import { ProjectCard } from '../components/frame/ProjectCard';
-import { ProjectModal } from '../components/frame/ProjectModal';
 import { Reveal } from '../components/Reveal';
 import { useLanguage } from '../i18n/LanguageContext';
 
@@ -9,7 +7,6 @@ export function ProjectsSection() {
   const { t } = useLanguage();
   const featured = projects.filter((p) => p.featured);
   const upcoming = projects.filter((p) => p.status === 'upcoming');
-  const [selected, setSelected] = useState<Project | null>(null);
 
   return (
     <section id="projets" className="px-6 py-24 max-w-7xl mx-auto">
@@ -26,7 +23,7 @@ export function ProjectsSection() {
       <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {featured.map((project, i) => (
           <Reveal key={project.id} delayMs={i * 120}>
-            <ProjectCard project={project} onOpen={() => setSelected(project)} />
+            <ProjectCard project={project} />
           </Reveal>
         ))}
       </div>
@@ -62,8 +59,6 @@ export function ProjectsSection() {
           </div>
         </Reveal>
       )}
-
-      {selected && <ProjectModal project={selected} onClose={() => setSelected(null)} />}
     </section>
   );
 }
