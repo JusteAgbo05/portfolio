@@ -7,7 +7,7 @@ export function Footer() {
 
   return (
     <footer className="px-6 py-8" style={{ borderTop: '0.5px solid var(--line)' }}>
-      <div className="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div className="max-w-screen-2xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
         <p
           className="text-xs"
           style={{ fontFamily: 'var(--font-display)', color: 'var(--text-muted)' }}

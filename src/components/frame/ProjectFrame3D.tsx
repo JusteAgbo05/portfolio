@@ -3,6 +3,7 @@ import type { Project } from '../../data/projects';
 import './project-frame.css';
 import { ScreenshotCycle } from './ScreenshotCycle';
 import { useLanguage } from '../../i18n/LanguageContext';
+import { EauEnsembleArtwork } from '../EauEnsembleArtwork';
 
 interface ProjectFrame3DProps {
   project: Project;
@@ -64,7 +65,16 @@ export function ProjectFrame3D({ project }: ProjectFrame3DProps) {
             <span className="pf-dot" />
             <span className="pf-dot" />
             <span className="pf-dot" />
-            <div className="pf-urlbar">{project.url ?? (lang === 'en' ? 'coming up' : 'à venir')}</div>
+            <div className="pf-urlbar">
+              {project.url ??
+                (project.status === 'upcoming'
+                  ? lang === 'en'
+                    ? 'coming up'
+                    : 'à venir'
+                  : lang === 'en'
+                    ? 'prototype in progress'
+                    : 'prototype en cours')}
+            </div>
           </div>
 
           <div className="pf-viewport">
@@ -79,6 +89,8 @@ export function ProjectFrame3D({ project }: ProjectFrame3DProps) {
               alt={`Aperçu de l'interface de ${project.name}`}
               className="pf-scroll-content pf-screenshot"
             />
+                ) : project.artwork === 'eau-ensemble' ? (
+                  <EauEnsembleArtwork variant="project" lang={lang} />
                 ) : (
               <PlaceholderUI />
               )}

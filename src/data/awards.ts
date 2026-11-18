@@ -2,6 +2,7 @@ export interface Award {
   id: string;
   rank?: string; // ex: '#1', '#3' — optionnel
   image?: string; // chemin vers l'image du certificat — ex: '/certificates/mon-cert.png'
+  artwork?: 'eau-ensemble';
   title: string;
   titleEn?: string;
   description: string;
@@ -114,5 +115,28 @@ export const awards: Award[] = [
     date: 'Septembre 2026',
     dateEn: 'September 2026',
     image: '/certificates/certificat_poo_python.png',
+  },
+  {
+    id: '10',
+    rank: '#10',
+    title: 'Essentiels de Python 1',
+    titleEn: 'Python Essentials 1',
+    description: 'Certificat de réussite délivré par Cybastion IT Academy dans le cadre du programme Cisco Networking Academy, attestant l’acquisition des bases de la programmation avec Python.',
+    descriptionEn: 'Certificate of completion issued by Cybastion IT Academy through the Cisco Networking Academy program, recognizing foundational skills in Python programming.',
+    date: 'Octobre 2026',
+    dateEn: 'October 2026',
+    image: '/certificates/certificat_python.jpg',
+  },
+  {
+    id: 'blo-challenge-2026',
+    artwork: 'eau-ensemble',
+    title: '3e place · Blo Challenge 2026',
+    titleEn: '3rd place · Blo Challenge 2026',
+    description:
+      'Avec Eulisen OGOUWALE et Eddy NINKO, notre équipe Nexora a présenté EauEnsemble au Blo Challenge 2026, du 20 au 22 octobre à l’INE, UAC. Le projet a obtenu la 3e place et un accompagnement de 500 000 FCFA pour poursuivre son développement.',
+    descriptionEn:
+      'With Eulisen OGOUWALE and Eddy NINKO, our Nexora team presented EauEnsemble at Blo Challenge 2026, held from October 20 to 22 at INE, UAC. The project won 3rd place and FCFA 500,000 in support to continue development.',
+    date: '20–22 octobre 2026',
+    dateEn: 'October 20–22, 2026',
   },
 ];

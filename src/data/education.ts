@@ -18,7 +18,7 @@ export const education: EducationItem[] = [
     status: 'ongoing',
     degree: "Programme d'Introduction à l'Intelligence Artificielle - parcours ML Engineer",
     degreeEn: 'Introduction to AI Program - ML Engineer track',
-    institution: 'Académie des Mathématiques Appliquées (AMA), semi-boursier',
+    institution: 'Académie des Mathématiques Appliquées (AMA), demi-boursier',
     location: 'Bénin',
     period: '2026 - 2027',
   },

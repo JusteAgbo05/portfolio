@@ -35,6 +35,7 @@ export function NodeGraph({ progress }: NodeGraphProps) {
   const nodesRef = useRef<THREE.InstancedMesh>(null);
   const edgesRef = useRef<THREE.LineSegments>(null);
   const cornersRef = useRef<THREE.InstancedMesh>(null);
+  const currentProgress = useRef(progress);
 
   const { scattered, structured, count } = useMemo(() => {
     const structured: THREE.Vector3[] = [];
@@ -84,6 +85,9 @@ export function NodeGraph({ progress }: NodeGraphProps) {
   }, []);
 
   useFrame((state, delta) => {
+    currentProgress.current = THREE.MathUtils.damp(currentProgress.current, progress, 2, delta);
+    const easedProgress = currentProgress.current;
+
     if (groupRef.current) {
       groupRef.current.rotation.y += delta * 0.08;
       groupRef.current.rotation.x = THREE.MathUtils.lerp(
@@ -98,8 +102,8 @@ export function NodeGraph({ progress }: NodeGraphProps) {
     // nœuds intérieurs
     if (nodesRef.current) {
       for (let i = 0; i < count; i++) {
-        const jitter = (1 - progress) * 0.15;
-        const pos = scattered[i].clone().lerp(structured[i], progress);
+        const jitter = (1 - easedProgress) * 0.15;
+        const pos = scattered[i].clone().lerp(structured[i], easedProgress);
         pos.x += Math.sin(t * 0.6 + i) * jitter;
         pos.y += Math.cos(t * 0.5 + i * 1.3) * jitter;
 
@@ -108,7 +112,7 @@ export function NodeGraph({ progress }: NodeGraphProps) {
         dummy.updateMatrix();
         nodesRef.current.setMatrixAt(i, dummy.matrix);
 
-        const color = cyan.clone().lerp(amber, progress);
+        const color = cyan.clone().lerp(amber, easedProgress);
         nodesRef.current.setColorAt(i, color);
       }
       nodesRef.current.instanceMatrix.needsUpdate = true;
@@ -120,7 +124,7 @@ export function NodeGraph({ progress }: NodeGraphProps) {
     if (cornersRef.current) {
       for (let i = 0; i < CORNERS.length; i++) {
         const target = new THREE.Vector3(...CORNERS[i]);
-        const pos = scatteredCorners[i].clone().lerp(target, progress);
+        const pos = scatteredCorners[i].clone().lerp(target, easedProgress);
         cornerPositions.push(pos);
 
         dummy.position.copy(pos);
@@ -143,7 +147,7 @@ export function NodeGraph({ progress }: NodeGraphProps) {
       posAttr.needsUpdate = true;
 
       const material = edgesRef.current.material as THREE.LineBasicMaterial;
-      material.opacity = 0.15 + progress * 0.55;
+      material.opacity = 0.15 + easedProgress * 0.55;
     }
   });
 

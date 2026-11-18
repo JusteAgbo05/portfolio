@@ -17,6 +17,11 @@ export interface Translations {
     awards: string;
     contact: string;
     notes: string;
+    musicPlay: string;
+    musicPause: string;
+    musicLabel: string;
+    musicActive: string;
+    musicError: string;
   };
   hero: {
     eyebrow: string;
@@ -25,6 +30,19 @@ export interface Translations {
     scroll: string;
     primaryCta: string;
     secondaryCta: string;
+  };
+  intro: {
+    eyebrow: string;
+    title: string;
+    description: string;
+    choosePath: string;
+    recruiter: string;
+    recruiterDescription: string;
+    collaborate: string;
+    collaborateDescription: string;
+    discover: string;
+    discoverDescription: string;
+    skip: string;
   };
   about: {
     eyebrow: string;
@@ -49,6 +67,12 @@ export interface Translations {
     presentation: string;
     deployed: string;
     inProgress: string;
+    imagePlaceholder: string;
+    filterLabel: string;
+    filterAll: string;
+    filterWeb: string;
+    filterDataMl: string;
+    filterTeam: string;
   };
   projectDetail: {
     back: string;
@@ -138,6 +162,11 @@ export const translations: Record<Lang, Translations> = {
       awards: 'Distinctions',
       contact: 'Contact',
       notes: 'Notes',
+      musicPlay: 'Activer la musique',
+      musicPause: 'Mettre la musique en pause',
+      musicLabel: 'Musique',
+      musicActive: 'Son actif',
+      musicError: 'Impossible de lire la musique. Vérifie le fichier public/audio/portfolio.mp3.',
     },
     hero: {
       eyebrow: 'profil: développeur full-stack · parcours ML engineer',
@@ -147,6 +176,19 @@ export const translations: Record<Lang, Translations> = {
       scroll: 'scroller pour me découvrir',
       primaryCta: 'Voir mes projets',
       secondaryCta: 'Me contacter',
+    },
+    intro: {
+      eyebrow: 'VIVIEN AGBO · PORTFOLIO',
+      title: 'Du signal à la solution.',
+      description: 'Développement web, Data & IA, projets d’équipe : des idées transformées en outils utiles.',
+      choosePath: 'Choisis le parcours qui t’intéresse',
+      recruiter: 'Recruter',
+      recruiterDescription: 'Voir les expériences, compétences et projets livrés.',
+      collaborate: 'Collaborer',
+      collaborateDescription: 'Explorer les projets réalisés en équipe.',
+      discover: 'Découvrir',
+      discoverDescription: 'Parcourir tous les projets et le parcours.',
+      skip: 'Passer l’introduction',
     },
    about: {
   eyebrow: "qui suis-je ?",
@@ -183,7 +225,7 @@ export const translations: Record<Lang, Translations> = {
           label: 'en cours',
           title: 'Parcours ML Engineer (AMA)',
           description:
-            "Programme d'Introduction à l'Intelligence Artificielle de l'Académie des Mathématiques Appliquées, semi-boursier.",
+            "Programme d'Introduction à l'Intelligence Artificielle de l'Académie des Mathématiques Appliquées, demi-boursier.",
         },
       ],
     },
@@ -196,6 +238,12 @@ export const translations: Record<Lang, Translations> = {
       presentation: 'Présentation',
       deployed: 'déployé',
       inProgress: 'en cours',
+      imagePlaceholder: 'Aperçu à ajouter',
+      filterLabel: 'Filtrer les projets par catégorie',
+      filterAll: 'Tous',
+      filterWeb: 'Web',
+      filterDataMl: 'Data/ML',
+      filterTeam: 'Équipe',
     },
     projectDetail: {
       back: 'retour aux projets',
@@ -284,6 +332,11 @@ export const translations: Record<Lang, Translations> = {
       awards: 'Awards',
       contact: 'Contact',
       notes: 'Notes',
+      musicPlay: 'Play music',
+      musicPause: 'Pause music',
+      musicLabel: 'Music',
+      musicActive: 'Sound on',
+      musicError: 'Unable to play music. Check the file public/audio/portfolio.mp3.',
     },
     hero: {
       eyebrow: 'profile: full-stack developer · ML engineer track',
@@ -293,6 +346,19 @@ export const translations: Record<Lang, Translations> = {
       scroll: 'scroll to discover me',
       primaryCta: 'View my projects',
       secondaryCta: 'Get in touch',
+    },
+    intro: {
+      eyebrow: 'VIVIEN AGBO · PORTFOLIO',
+      title: 'From signal to solution.',
+      description: 'Web development, Data & AI, team projects: turning ideas into useful tools.',
+      choosePath: 'Choose the path that interests you',
+      recruiter: 'Recruit',
+      recruiterDescription: 'See experience, skills, and shipped projects.',
+      collaborate: 'Collaborate',
+      collaborateDescription: 'Explore projects built with a team.',
+      discover: 'Explore',
+      discoverDescription: 'Browse all projects and the full journey.',
+      skip: 'Skip introduction',
     },
    about: {
   eyebrow: "who am I?",
@@ -342,6 +408,12 @@ export const translations: Record<Lang, Translations> = {
       presentation: 'Presentation',
       deployed: 'deployed',
       inProgress: 'in progress',
+      imagePlaceholder: 'Preview to be added',
+      filterLabel: 'Filter projects by category',
+      filterAll: 'All',
+      filterWeb: 'Web',
+      filterDataMl: 'Data/ML',
+      filterTeam: 'Team',
     },
     projectDetail: {
       back: 'back to projects',

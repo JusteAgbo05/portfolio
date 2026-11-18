@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import type { Project } from '../../data/projects';
 import { useLanguage } from '../../i18n/LanguageContext';
+import { EauEnsembleArtwork } from '../EauEnsembleArtwork';
 
 interface ProjectCardProps {
   project: Project;
@@ -29,12 +30,14 @@ export function ProjectCard({ project, visibleTagCount = 4 }: ProjectCardProps) 
             alt={project.name}
             className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
           />
+        ) : project.artwork === 'eau-ensemble' ? (
+          <EauEnsembleArtwork variant="project" lang={lang} />
         ) : (
           <div
             className="w-full h-full flex items-center justify-center text-xs"
             style={{ fontFamily: 'var(--font-display)', color: 'var(--text-muted)' }}
           >
-            à venir
+            {t.projects.imagePlaceholder}
           </div>
         )}
 

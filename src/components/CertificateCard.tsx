@@ -1,5 +1,7 @@
 import { Award as AwardIcon } from 'lucide-react';
 import type { Award } from '../data/awards';
+import { EauEnsembleArtwork } from './EauEnsembleArtwork';
+import { useLanguage } from '../i18n/LanguageContext';
 
 interface CertificateCardProps {
   award: Award;
@@ -9,14 +11,12 @@ interface CertificateCardProps {
 }
 
 export function CertificateCard({ award, title, date, onOpen }: CertificateCardProps) {
-  return (
-    <button
-      onClick={onOpen}
-      className="text-left shrink-0 w-64 snap-start"
-      style={{ scrollSnapAlign: 'start' }}
-    >
+  const { lang } = useLanguage();
+  const cardClassName = 'text-left shrink-0 w-64 snap-start';
+  const cardContent = (
+    <>
       <div
-        className="relative aspect-[4/3] rounded-xl overflow-hidden mb-3"
+        className={`relative rounded-xl overflow-hidden mb-3 ${award.artwork ? 'aspect-[3/4]' : 'aspect-[4/3]'}`}
         style={{ background: 'var(--surface)', border: '0.5px solid var(--line)' }}
       >
         {award.rank && (
@@ -38,6 +38,8 @@ export function CertificateCard({ award, title, date, onOpen }: CertificateCardP
             alt={title}
             className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
           />
+        ) : award.artwork === 'eau-ensemble' ? (
+          <EauEnsembleArtwork variant="award" lang={lang} />
         ) : (
           <div
             className="w-full h-full flex items-center justify-center"
@@ -57,6 +59,24 @@ export function CertificateCard({ award, title, date, onOpen }: CertificateCardP
       >
         {date}
       </p>
+    </>
+  );
+
+  if (!award.image) {
+    return (
+      <article className={cardClassName} style={{ scrollSnapAlign: 'start' }}>
+        {cardContent}
+      </article>
+    );
+  }
+
+  return (
+    <button
+      onClick={onOpen}
+      className={cardClassName}
+      style={{ scrollSnapAlign: 'start' }}
+    >
+      {cardContent}
     </button>
   );
 }

@@ -11,7 +11,7 @@ export function Hero3D({ progress }: Hero3DProps) {
       camera={{ position: [0, 0, 7.5], fov: 45 }}
       gl={{ antialias: true, alpha: true }}
       dpr={[1, 2]}
-      style={{ position: 'absolute', inset: 0 }}
+      style={{ position: 'absolute', inset: 0, pointerEvents: 'none' }}
     >
       <NodeGraph progress={progress} />
     </Canvas>

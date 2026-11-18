@@ -1,23 +1,13 @@
-import { lazy, Suspense } from 'react';
-import { useScrollProgress } from '../hooks/useScrollProgress';
 import { useLanguage } from '../i18n/LanguageContext';
-
-const Hero3D = lazy(() => import('../components/hero/Hero3D').then(({ Hero3D }) => ({ default: Hero3D })));
 
 export function HeroSection() {
   const { t } = useLanguage();
-  const { ref, progress } = useScrollProgress<HTMLDivElement>();
 
   return (
     <section
       id="hero"
-      ref={ref}
       className="relative h-screen overflow-hidden flex items-center"
     >
-      <Suspense fallback={<div className="absolute inset-0" aria-hidden="true" />}>
-        <Hero3D progress={progress} />
-      </Suspense>
-
       <div className="relative z-10 px-6 max-w-4xl mx-auto w-full">
         <p
           className="text-xs tracking-widest mb-4"

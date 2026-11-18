@@ -41,6 +41,37 @@
   width: 100%;
 }
 
+.music-toggle {
+  display: inline-flex;
+  min-width: 30px;
+  height: 30px;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 0 8px;
+  border: 0.5px solid var(--line);
+  border-radius: 6px;
+  background: transparent;
+  color: var(--text-secondary);
+  font: inherit;
+  font-size: 11px;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.music-toggle:hover {
+  color: var(--text);
+  border-color: var(--text-secondary);
+}
+
+.music-error {
+  max-width: 72rem;
+  margin: 8px auto 0;
+  color: var(--amber);
+  font-size: 12px;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .header-animated {
     animation: none;
